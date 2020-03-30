@@ -7,6 +7,9 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 class App extends React.Component {
+  state = {
+    busqueda: ""
+  };
   render() {
     return (
       <BrowserRouter>

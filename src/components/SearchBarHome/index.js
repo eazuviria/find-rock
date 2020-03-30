@@ -4,19 +4,12 @@ import logo from "../../logo.svg";
 import "./index.css";
 
 class SearchBarHome extends React.Component {
-  state = {
-    busqueda: ""
-  };
+  state = {};
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
-  handleClick = e => {
-    e.preventDefault();
-  };
-  handleSubmit = e => {
-    e.preventDefault();
+    console.log(e.target.name, e.target.value);
   };
   render() {
     return (
@@ -29,7 +22,7 @@ class SearchBarHome extends React.Component {
               <form
                 name="formulario"
                 className="form-home"
-                onSubmit={this.handleSubmit}
+                onSubmit={this.props.onSubmit}
               >
                 <div className="busqueda-home">
                   <input
@@ -42,7 +35,9 @@ class SearchBarHome extends React.Component {
                   />
                 </div>
                 <div className="buttons">
-                  <button className="btng">Search Similar Artist</button>
+                  <button className="btng" type="submit">
+                    Search Similar Artist
+                  </button>
                   <button className="btng">EscuelaDevRock</button>
                 </div>
               </form>

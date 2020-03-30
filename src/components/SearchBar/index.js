@@ -4,23 +4,6 @@ import "./index.css";
 import { Link } from "react-router-dom";
 
 class SearchBar extends React.Component {
-  state = {
-    busqueda: ""
-  };
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-    console.log(e.target.name, e.target.value);
-  };
-  handleClick = e => {
-    e.preventDefault();
-    console.log(e.target.name, "y me apretaron");
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log(e.target.name, "submitearon");
-  };
   render() {
     return (
       <React.Fragment>
@@ -34,7 +17,7 @@ class SearchBar extends React.Component {
             <form
               name="formulario"
               className="form-inline"
-              onSubmit={this.handleSubmit}
+              onSubmit={this.props.onSubmit}
             >
               <div className="busqueda">
                 <input

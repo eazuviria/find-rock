@@ -2,20 +2,26 @@ import React, { Component } from "react";
 import SearchBar from "./components/SearchBar";
 import SearchResult from "./components/SearchResult";
 class Busqueda extends Component {
-  state = {};
-  UNSAFE_componentWillMount() {
-    console.log("antes del render, component will mount");
-  }
+  state = {
+    busqueda: ""
+  };
   componentDidMount() {
-    console.log("despues del render, componente did mount");
-  }
-  componentWillUnmount() {
-    console.log("se fue el componente");
+    let search = this.props.history.location.search
+      .substr(1)
+      .replace("%20", " ");
+    this.setState({
+      busqueda: search
+    });
   }
   changeHandle = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      busqueda: e.target.value
     });
+    // this.props.history.push(this.state.busqueda);
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.history.push("/busqueda?" + this.state.busqueda);
   };
   render() {
     return (
@@ -23,6 +29,7 @@ class Busqueda extends Component {
         <SearchBar
           onChange={this.changeHandle}
           busqueda={this.state.busqueda}
+          onSubmit={this.handleSubmit}
         />
         <SearchResult busqueda={this.state.busqueda} />
       </React.Fragment>
