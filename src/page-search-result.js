@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchBar from "./components/SearchBar";
 import SearchResult from "./components/SearchResult";
+import ReactDOM from "react-dom";
 class Busqueda extends Component {
   state = {
     busqueda: ""
@@ -32,6 +33,10 @@ class Busqueda extends Component {
           onSubmit={this.handleSubmit}
         />
         <SearchResult busqueda={this.state.busqueda} />
+        {ReactDOM.createPortal(
+          <h1>hola soy un portal</h1>,
+          document.getElementById("teleport")
+        )}
       </React.Fragment>
     );
   }

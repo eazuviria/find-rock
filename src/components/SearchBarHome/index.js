@@ -38,7 +38,9 @@ class SearchBarHome extends React.Component {
                   <button className="btng" type="submit">
                     Search Similar Artist
                   </button>
-                  <button className="btng">EscuelaDevRock</button>
+                  <button className="btng" onClick={this.props.onClick}>
+                    EscuelaDevRock
+                  </button>
                 </div>
               </form>
             </div>

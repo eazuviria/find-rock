@@ -3,15 +3,21 @@ import ArtistCard from "../ArtistCard";
 
 class SimilarArtist extends React.Component {
   render() {
+    console.log(this.props.data);
     return (
       <React.Fragment>
         <h5 className="text-center">Similar artist</h5>
         <hr />
-        <div className="row">
-          <ArtistCard img={"http://placehold.it/350x350"} titulo={"prueba"} />
-          <ArtistCard img={"http://placehold.it/350x350"} titulo={"prueba"} />
-          <ArtistCard img={"http://placehold.it/350x350"} titulo={"prueba"} />
-          <ArtistCard img={"http://placehold.it/350x350"} titulo={"prueba"} />
+        <div className="row justify-content-center">
+          {this.props.data.map((item, i) => {
+            return (
+              <ArtistCard
+                img={item.image[2]["#text"]}
+                titulo={item.name}
+                key={i}
+              />
+            );
+          })}
         </div>
       </React.Fragment>
     );

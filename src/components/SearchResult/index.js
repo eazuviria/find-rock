@@ -36,6 +36,8 @@ class PageSearchResult extends Component {
       });
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
+
       if (data.error) {
         this.setState({
           error: true,
